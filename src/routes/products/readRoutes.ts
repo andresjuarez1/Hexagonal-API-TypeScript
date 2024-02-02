@@ -1,9 +1,9 @@
 import express, { Request, Response } from 'express';
-import { getAllProducts } from '../controllers/readController';
+import { getAllProducts } from '../../controllers/productController/readController';
 
-const readRouter = express.Router();
+const productReadRouter = express.Router();
 
-readRouter.get('/productos', async (req: Request, res: Response) => { 
+productReadRouter.get('/productos', async (req: Request, res: Response) => { 
     console.log('coyol');
     try {
         const products = await getAllProducts();
@@ -13,4 +13,4 @@ readRouter.get('/productos', async (req: Request, res: Response) => {
     }
 });
 
-export { readRouter };
+export { productReadRouter };

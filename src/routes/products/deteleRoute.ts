@@ -1,10 +1,10 @@
-import { deleteProduct } from '../controllers/deleteController'; 
+import { deleteProduct } from '../../controllers/productController/deleteController'; 
 import express, { Request, Response } from 'express';
 
-const deleteRouter = express.Router();
+const productDeleteRouter = express.Router();
 
 
-deleteRouter.delete('/productos/:id', async (req: Request, res: Response) => {
+productDeleteRouter.delete('/productos/:id', async (req: Request, res: Response) => {
     const productId = req.params.id;
 
     try {
@@ -15,4 +15,4 @@ deleteRouter.delete('/productos/:id', async (req: Request, res: Response) => {
     }
 });
 
-export { deleteRouter }; 
+export { productDeleteRouter }; 

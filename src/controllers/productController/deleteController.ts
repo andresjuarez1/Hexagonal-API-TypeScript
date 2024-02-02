@@ -1,5 +1,5 @@
-import { ProductEntity } from '../domain/entities/productEntity';
-import { connect } from '../adapters/mongoAdapter';
+import { ProductEntity } from '../../domain/entities/productEntity';
+import { connect } from '../../adapters/mongoAdapter';
 
 async function deleteProduct(productId: string) {
     await connect();

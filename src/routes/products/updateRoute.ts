@@ -1,9 +1,9 @@
 import express, { Request, Response } from 'express';
-import { updateProduct } from '../controllers/updateController';
+import { updateProduct } from '../../controllers/productController/updateController';
 
-const updateRouter = express.Router();
+const productUpdateRouter = express.Router();
 
-updateRouter.put('/productos/:id', async (req: Request, res: Response) => {
+productUpdateRouter.put('/productos/:id', async (req: Request, res: Response) => {
     const productId = req.params.id;
     const updatedProductData = req.body;
 
@@ -15,4 +15,4 @@ updateRouter.put('/productos/:id', async (req: Request, res: Response) => {
     }
 });
 
-export { updateRouter }; 
+export { productUpdateRouter }; 
