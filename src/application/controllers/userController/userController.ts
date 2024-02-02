@@ -1,5 +1,5 @@
-import { UserEntity } from '../../domain/entities/userEntity';
-import { connect } from '../../repositories/mongoAdapter'; 
+import { UserEntity } from '../../../domain/entities/userEntity';
+import { connect } from '../../../infrastructure/adapters/mongoAdapter';
 
 async function createUser(userData: any) {
     await connect();

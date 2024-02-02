@@ -1,5 +1,5 @@
-import { start as startExpress } from './repositories/expressAdapter';
-import { connect as connectMongo } from './repositories/mongoAdapter';
+import { start as startExpress } from './infrastructure/adapters/expressAdapter';
+import { connect as connectMongo } from './infrastructure/adapters/mongoAdapter';
 import 'dotenv/config'; 
 
 require('dotenv').config();

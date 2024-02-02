@@ -1,4 +1,3 @@
-// userRoutes.ts
 import express, { Request, Response } from 'express';
 import { createUser, getAllUsers, updateUser, deleteUser } from '../../controllers/userController/userController';
 
