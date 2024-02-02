@@ -1,6 +1,9 @@
 import express, { Request, Response } from 'express';
 import bodyParser from 'body-parser';
-import { createProduct, getAllProducts, deleteProduct, updateProduct } from '../application/useCases/productUseCase';
+import { createProduct } from '../controllers/createController';
+import { getAllProducts } from '../controllers/readController';
+import { updateProduct } from '../controllers/updateController';
+import { deleteProduct } from '../controllers/deleteController';
 
 const app = express();
 const PORT = process.env.PORT || 3000;
