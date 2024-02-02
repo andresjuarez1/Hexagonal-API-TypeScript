@@ -1,4 +1,3 @@
-// readController.ts
 import { ProductEntity } from '../domain/entities/productEntity';
 import { connect } from '../adapters/mongoAdapter';
 

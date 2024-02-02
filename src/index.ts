@@ -4,10 +4,8 @@ import 'dotenv/config';
 
 require('dotenv').config();
 
-// Conectar a MongoDB
 connectMongo()
     .then(() => {
-        // Iniciar la aplicación Express
         startExpress();
     })
     .catch((error) => {
