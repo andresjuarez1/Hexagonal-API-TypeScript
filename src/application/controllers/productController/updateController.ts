@@ -1,16 +1,9 @@
-import { ProductEntity } from '../../../domain/entities/productEntity';
-import { connect } from '../../../infrastructure/adapters/mongoAdapter';
+import { Request, Response } from 'express';
+import productRepository from '../../../infrastructure/repositories/productRepository';
 
-async function updateProduct(productId: string, updatedProductData: any) {
-    await connect();
-
+async function updateProduct(req: Request, res: Response, productId: string, updatedProductData: any) {
     try {
-        const updatedProduct = await ProductEntity.findByIdAndUpdate(
-            productId,
-            updatedProductData,
-            { new: true }
-        );
-
+        const updatedProduct = await productRepository.updateProduct(productId, updatedProductData);
         if (!updatedProduct) {
             throw new Error('No se encontró el producto con el ID proporcionado.');
         }

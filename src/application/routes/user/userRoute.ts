@@ -5,7 +5,7 @@ const userRouter = express.Router();
 
 userRouter.post('/users', async (req: Request, res: Response) => {
     try {
-        const result = await createUser(req.body);
+        const result = await createUser(req, res);  
         res.json(result);
     } catch (error: any) {
         res.status(500).json({ error: error.message });
@@ -14,7 +14,7 @@ userRouter.post('/users', async (req: Request, res: Response) => {
 
 userRouter.get('/users', async (req: Request, res: Response) => {
     try {
-        const users = await getAllUsers();
+        const users = await getAllUsers(req, res); 
         res.json(users);
     } catch (error: any) {
         res.status(500).json({ error: error.message });
@@ -26,7 +26,7 @@ userRouter.put('/users/:id', async (req: Request, res: Response) => {
     const updatedUserData = req.body;
 
     try {
-        await updateUser(userId, updatedUserData);
+        await updateUser(req, res, userId, updatedUserData);  
         res.json({ message: 'Usuario actualizado correctamente.' });
     } catch (error: any) {
         res.status(500).json({ error: error.message });
@@ -37,7 +37,7 @@ userRouter.delete('/users/:id', async (req: Request, res: Response) => {
     const userId = req.params.id;
 
     try {
-        await deleteUser(userId);
+        await deleteUser(req, res, userId);  // Pasa tanto req como res a deleteUser
         res.json({ message: 'Usuario eliminado correctamente.' });
     } catch (error: any) {
         res.status(500).json({ error: error.message });

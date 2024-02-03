@@ -3,10 +3,9 @@ import { getAllProducts } from '../../controllers/productController/readControll
 
 const productReadRouter = express.Router();
 
-productReadRouter.get('/productos', async (req: Request, res: Response) => { 
-    console.log('coyol');
+productReadRouter.get('/productos', async (req: Request, res: Response, ) => {
     try {
-        const products = await getAllProducts();
+        const products = await getAllProducts(req, res);
         res.json(products);
     } catch (error: any) {
         res.status(500).json({ error: error.message });

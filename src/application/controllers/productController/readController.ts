@@ -1,20 +1,12 @@
-import { ProductEntity } from '../../../domain/entities/productEntity';
-import { connect } from '../../../infrastructure/adapters/mongoAdapter';
+import { Request, Response } from 'express';
+import productRepository from '../../../infrastructure/repositories/productRepository';
 
-async function getAllProducts(): Promise<any[]> {
-    await connect();
-
+async function getAllProducts(req: Request, res: Response) {
     try {
-        const products = await ProductEntity.find();
-        if (!products || products.length === 0) {
-            console.log('No se encontraron productos.');
-            return [];
-        }
-        console.log('Productos obtenidos:', products);
-        return products;
-    } catch (error) {
-        console.error('Error al obtener productos:', error);
-        throw error;
+        const products = await productRepository.getAllProducts();
+        res.json(products);
+    } catch (error: any) {
+        res.status(500).json({ error: error.message });
     }
 }
 

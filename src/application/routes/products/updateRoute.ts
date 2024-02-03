@@ -8,11 +8,11 @@ productUpdateRouter.put('/productos/:id', async (req: Request, res: Response) =>
     const updatedProductData = req.body;
 
     try {
-        await updateProduct(productId, updatedProductData);
+        await updateProduct(req, res, productId, updatedProductData);  // Pasa tanto req como res a updateProduct
         res.json({ message: 'Producto actualizado correctamente.' });
     } catch (error: any) {
         res.status(500).json({ error: error.message });
     }
 });
 
-export { productUpdateRouter }; 
+export { productUpdateRouter };

@@ -1,7 +1,7 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import { productCreateRouter } from '../../application/routes/products/createRoute';
-import { productReadRouter } from '../../application/routes/products/readRoutes';
+import { productReadRouter } from '../../application/routes/products/readRoute';
 import { productUpdateRouter } from '../../application/routes/products/updateRoute';
 import { productDeleteRouter } from '../../application/routes/products/deteleRoute';  
 import { userRouter } from '../../application/routes/user/userRoute';

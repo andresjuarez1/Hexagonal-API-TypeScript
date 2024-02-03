@@ -1,13 +1,13 @@
-import { ProductEntity } from '../../../domain/entities/productEntity';
-import { connect } from '../../../infrastructure/adapters/mongoAdapter';
+import { Request, Response } from 'express';
+import productRepository from '../../../infrastructure/repositories/productRepository';
 
-async function createProduct(productData: any) {
-    await connect();
-
-    const productEntity = new ProductEntity(productData);
-    const savedProduct = await productEntity.save();
-
-    return savedProduct;
-}
+async function createProduct(req: Request, res: Response) {
+    try {
+        const result = await productRepository.createProduct(req.body);
+        return result;
+    } catch (error: any) {
+        throw error;
+    }
+}  
 
 export { createProduct };

@@ -1,16 +1,9 @@
-import { ProductEntity } from '../../../domain/entities/productEntity';
-import { connect } from '../../../infrastructure/adapters/mongoAdapter';
+import { Request, Response } from 'express';
+import productRepository from '../../../infrastructure/repositories/productRepository';
 
-async function deleteProduct(productId: string) {
-    await connect();
-
+async function deleteProduct(req: Request, res: Response, productId: string) {
     try {
-        const deletedProduct = await ProductEntity.findByIdAndDelete(productId);
-
-        if (!deletedProduct) {
-            throw new Error('No se encontró el producto con el ID proporcionado.');
-        }
-
+        const deletedProduct = await productRepository.deleteProduct(productId); 
         console.log('Producto eliminado:', deletedProduct);
     } catch (error) {
         console.error('Error al eliminar el producto:', error);

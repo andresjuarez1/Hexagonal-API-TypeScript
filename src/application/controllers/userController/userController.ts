@@ -1,25 +1,21 @@
-import { UserEntity } from '../../../domain/entities/userEntity';
-import { connect } from '../../../infrastructure/adapters/mongoAdapter';
+import { Request, Response } from 'express';
+import userRepository from '../../../infrastructure/repositories/userRepository';
 
-async function createUser(userData: any) {
-    await connect();
-
-    const userEntity = new UserEntity(userData);
-    const savedUser = await userEntity.save();
-
-    return savedUser;
+async function createUser(req: Request, res: Response) {
+    try {
+        // Implementa la lógica para crear un usuario aquí utilizando req.body
+        const result = await userRepository.createUser(req.body);
+        return result;
+    } catch (error) {
+        console.error('Error al crear el usuario:', error);
+        throw error;
+    }
 }
 
-async function getAllUsers(): Promise<any[]> {
-    await connect();
-
+async function getAllUsers(req: Request, res: Response) {
     try {
-        const users = await UserEntity.find();
-        if (!users || users.length === 0) {
-            console.log('No se encontraron usuarios.');
-            return [];
-        }
-        console.log('Usuarios obtenidos:', users);
+        // Implementa la lógica para obtener todos los usuarios aquí
+        const users = await userRepository.getAllUsers();
         return users;
     } catch (error) {
         console.error('Error al obtener usuarios:', error);
@@ -27,38 +23,20 @@ async function getAllUsers(): Promise<any[]> {
     }
 }
 
-async function updateUser(userId: string, updatedUserData: any) {
-    await connect();
-
+async function updateUser(req: Request, res: Response, userId: string, updatedUserData: any) {
     try {
-        const updatedUser = await UserEntity.findByIdAndUpdate(
-            userId,
-            updatedUserData,
-            { new: true }
-        );
-
-        if (!updatedUser) {
-            throw new Error('No se encontró el usuario con el ID proporcionado.');
-        }
-
-        console.log('Usuario actualizado:', updatedUser);
+        const updatedUser = await userRepository.updateUser(userId, updatedUserData);
+        return updatedUser;
     } catch (error) {
         console.error('Error al actualizar el usuario:', error);
         throw error;
     }
 }
 
-async function deleteUser(userId: string) {
-    await connect();
-
+async function deleteUser(req: Request, res: Response, userId: string) {
     try {
-        const deletedUser = await UserEntity.findByIdAndDelete(userId);
-
-        if (!deletedUser) {
-            throw new Error('No se encontró el usuario con el ID proporcionado.');
-        }
-
-        console.log('Usuario eliminado:', deletedUser);
+        const deletedUser = await userRepository.deleteUser(userId);
+        return deletedUser;
     } catch (error) {
         console.error('Error al eliminar el usuario:', error);
         throw error;
