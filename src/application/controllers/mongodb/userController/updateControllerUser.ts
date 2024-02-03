@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import userRepository from '../../../infrastructure/repositories/userRepository'; 
+import userRepository from '../../../../infrastructure/repositories/mongodb/userRepository'; 
 
 async function updateUser(req: Request, res: Response, userId: string, updatedUserData: any) {
     try {

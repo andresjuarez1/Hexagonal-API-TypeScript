@@ -1,5 +1,5 @@
 import express, { Request, Response } from 'express';
-import { deleteProduct } from '../../controllers/productController/deleteController';
+import { deleteProduct } from '../../../controllers/mongodb/productController/deleteController';
 
 const productDeleteRouter = express.Router();
 

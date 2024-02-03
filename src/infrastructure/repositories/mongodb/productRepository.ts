@@ -1,4 +1,4 @@
-import { ProductEntity, IProduct } from '../../domain/entities/productEntity';
+import { ProductEntity, IProduct } from '../../../domain/entities/productEntity';
 
 class ProductRepository {
     async createProduct(productData: any): Promise<IProduct> {

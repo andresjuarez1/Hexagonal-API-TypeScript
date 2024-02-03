@@ -1,4 +1,4 @@
-import { createUser } from '../../controllers/userController/createControllerUser';
+import { createUser } from '../../../controllers/mongodb/userController/createControllerUser';
 import express, { Request, Response } from 'express'; 
 
 const userCreateRouter = express.Router();

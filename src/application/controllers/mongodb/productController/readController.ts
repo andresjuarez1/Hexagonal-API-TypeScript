@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import productRepository from '../../../infrastructure/repositories/productRepository';
+import productRepository from '../../../../infrastructure/repositories/mongodb/productRepository';
 
 async function getAllProducts(req: Request, res: Response) {
     try {

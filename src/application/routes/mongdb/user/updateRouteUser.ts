@@ -1,5 +1,5 @@
 import express, { Request, Response } from 'express';
-import { updateUser } from '../../controllers/userController/updateControllerUser';
+import { updateUser } from '../../../controllers/mongodb/userController/updateControllerUser';
 
 const userUpdateRouter = express.Router();
 

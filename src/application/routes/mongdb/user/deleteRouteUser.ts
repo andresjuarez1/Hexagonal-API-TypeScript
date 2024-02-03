@@ -1,4 +1,4 @@
-import { deleteUser } from '../../controllers/userController/deleteControllerUser';
+import { deleteUser } from '../../../controllers/mongodb/userController/deleteControllerUser';
 import express, { Request, Response } from 'express'; 
 
 const userDeteleRouter = express.Router();

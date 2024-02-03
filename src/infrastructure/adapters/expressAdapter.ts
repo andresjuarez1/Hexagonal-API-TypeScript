@@ -1,16 +1,16 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 
-import { productCreateRouter } from '../../application/routes/products/createRoute';
-import { productReadRouter } from '../../application/routes/products/readRoute';
-import { productUpdateRouter } from '../../application/routes/products/updateRoute';
-import { productDeleteRouter } from '../../application/routes/products/deteleRoute';   
+import { productCreateRouter } from '../../application/routes/mongdb/products/createRoute';
+import { productReadRouter } from '../../application/routes/mongdb/products/readRoute';
+import { productUpdateRouter } from '../../application/routes/mongdb/products/updateRoute';
+import { productDeleteRouter } from '../../application/routes/mongdb/products/deteleRoute';   
 
 
-import { userCreateRouter } from '../../application/routes/user/createRouteUser';
-import { userDeteleRouter } from '../../application/routes/user/deleteRouteUser';
-import { userReadRouter } from '../../application/routes/user/readRouteUser';
-import { userUpdateRouter } from '../../application/routes/user/updateRouteUser';
+import { userCreateRouter } from '../../application/routes/mongdb/user/createRouteUser';
+import { userDeteleRouter } from '../../application/routes/mongdb/user/deleteRouteUser';
+import { userReadRouter } from '../../application/routes/mongdb/user/readRouteUser';
+import { userUpdateRouter } from '../../application/routes/mongdb/user/updateRouteUser';
 
 import { connectMongo } from '../../infrastructure/adapters/mongoAdapter';
 import { connectMysql } from '../../infrastructure/adapters/mysqlAdapter';

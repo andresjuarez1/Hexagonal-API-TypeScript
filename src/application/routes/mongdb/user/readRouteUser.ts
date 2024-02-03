@@ -1,5 +1,5 @@
 import express, { Request, Response } from 'express';
-import { getAllUsers } from '../../controllers/userController/readControllerUser';
+import { getAllUsers } from '../../../controllers/mongodb/userController/readControllerUser';
 
 const userReadRouter = express.Router();
 

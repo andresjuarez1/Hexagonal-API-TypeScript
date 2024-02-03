@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import userRepository from '../../../infrastructure/repositories/userRepository';
+import userRepository from '../../../../infrastructure/repositories/mongodb/userRepository';
 
 async function createUser(req: Request, res: Response) {
     try {

@@ -1,4 +1,4 @@
-import { UserEntity, IUser } from '../../domain/entities/userEntity';
+import { UserEntity, IUser } from '../../../domain/entities/userEntity';
 
 class UserRepository {
     async createUser(userData: any): Promise<IUser> {
