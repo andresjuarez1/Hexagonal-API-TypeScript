@@ -1,24 +1,31 @@
 import { start as startExpress } from './infrastructure/adapters/expressAdapter';
-import { connectMongo as connectionMongo } from './infrastructure/adapters/mongoAdapter';
-import { connectMysql as connectionMysql } from './infrastructure/adapters/mysqlAdapter';
-import 'dotenv/config';
+import { connect as connectionMongo } from './infrastructure/adapters/mongoAdapter';
+import { connectMysql, closeMysqlConnection } from './infrastructure/adapters/mysqlAdapter';
+import 'dotenv/config'; 
 
-require('dotenv').config();
+const startServer = async () => {
+    let connectedToMongo = false;
 
-connectionMongo()
-    .then(() => {
+    try {
+        await connectionMongo();
         console.log('Conectado a MongoDB');
-    })
-    .catch((error) => {
-        console.error('Error al conectar a MongoDB:', error);
-    });
+        connectedToMongo = true;
+    } catch (mongoError: any) {
+        console.error(`Error al conectar a MongoDB: ${(mongoError as Error).message}`);
+    }
 
-// connectionMysql()  
-//     .then(() => {
-//         console.log('Conectado a MySQL');
-//     })
-//     .catch((error) => {
-//         console.error('Error al conectar a MySQL:', error);
-//     });
+    if (!connectedToMongo) {
+        try {
+            await connectMysql();
+            console.log('Conectado a MySQL');
+        } catch (mysqlError: any) {
+            console.error(`Error al conectar a MySQL: ${(mysqlError as Error).message}`);
+            console.error('No se pudo conectar a ninguna base de datos.');
+            return;
+        }
+    }
 
-startExpress();
+    startExpress();
+};
+
+startServer();

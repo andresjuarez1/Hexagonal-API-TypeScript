@@ -27,3 +27,37 @@ class ProductRepository {
 }
 
 export default new ProductRepository();
+
+
+// src 
+// ├── application
+// │   ├── controllers
+// │   │   ├── mysql
+// │   │   │   ├── productControllerMySQL.ts
+// │   │   │   └── userControllerMySQL.ts
+// │   │   ├── mongo
+// │   │   │   ├── productControllerMongo.ts
+// │   │   │   └── userControllerMongo.ts
+// │   ├── routes
+// │   │   ├── mysql
+// │   │   │   ├── productRoutesMySQL.ts
+// │   │   │   └── userRoutesMySQL.ts
+// │   │   ├── mongo
+// │   │   │   ├── productRoutesMongo.ts
+// │   │   │   └── userRoutesMongo.ts
+// ├── domain
+// │   ├── entities
+// │   │   ├── productEntity.ts
+// │   │   └── userEntity.ts
+// └── infrastructure
+//     ├── adapters
+//     │   ├── expressAdapter.ts
+//     │   ├── mongoAdapter.ts
+//     │   └── mysqlAdapter.ts
+//     ├── repositories
+//     │   ├── mysql
+//     │   │   ├── productRepositoryMySQL.ts
+//     │   │   └── userRepositoryMySQL.ts
+//     │   ├── mongo
+//     │   │   ├── productRepositoryMongo.ts
+//     │   │   └── userRepositoryMongo.ts 

@@ -7,7 +7,7 @@ productDeleteRouter.delete('/productos/:id', async (req: Request, res: Response)
     const productId = req.params.id;
 
     try {
-        await deleteProduct(req, res, productId);  // Pasa tanto req como res a deleteProduct
+        await deleteProduct(req, res, productId);  
         res.json({ message: 'Producto eliminado correctamente.' });
     } catch (error: any) {
         res.status(500).json({ error: error.message });
