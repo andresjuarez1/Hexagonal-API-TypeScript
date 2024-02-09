@@ -6,7 +6,7 @@ interface IUserMySQL {
   password: string;
   verified_at: number;
   created_at: number;
-  deleted_at: number;
+  verified: boolean;
 }
 
 class UserEntityMySQL {

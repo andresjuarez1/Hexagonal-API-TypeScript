@@ -7,13 +7,13 @@ import { productUpdateRouter } from '../../application/routes/mongdb/products/up
 import { productDeleteRouter } from '../../application/routes/mongdb/products/deteleRoute';
 
 
-import { userCreateRouter } from '../../application/routes/mongdb/user/createRouteUser';
+import { userCreateRouter } from '../../application/routes/mongdb/user/registerRouteUser';
 import { userDeteleRouter } from '../../application/routes/mongdb/user/deleteRouteUser';
 import { userReadRouter } from '../../application/routes/mongdb/user/readRouteUser';
 import { userUpdateRouter } from '../../application/routes/mongdb/user/updateRouteUser';
 
 
-import { userCreateRouterMysql } from '../../application/routes/mysql/user/createRouteUserMysql';
+import { userCreateRouterMysql } from '../../application/routes/mysql/user/registerRouteUserMysql';
 import { userDeleteRouterMysql } from '../../application/routes/mysql/user/deleteRouteUserMysql';
 import { userReadRouterMysql } from '../../application/routes/mysql/user/readRouteUserMysql';
 import { userUpdateRouterMysql } from '../../application/routes/mysql/user/updateRouteUserMysql';
