@@ -14,6 +14,8 @@ import { userUpdateRouter } from '../../application/routes/mongdb/user/updateRou
 
 
 import { userCreateRouterMysql } from '../../application/routes/mysql/user/registerRouteUserMysql';
+import { userLoginRouter } from '../../application/routes/mongdb/user/loginRouteUser';
+import { userLogoutRoute } from '../../application/routes/mongdb/user/logoutRouteUser';
 import { userDeleteRouterMysql } from '../../application/routes/mysql/user/deleteRouteUserMysql';
 import { userReadRouterMysql } from '../../application/routes/mysql/user/readRouteUserMysql';
 import { userUpdateRouterMysql } from '../../application/routes/mysql/user/updateRouteUserMysql';
@@ -22,7 +24,6 @@ import { productCreateRouterMysql } from '../../application/routes/mysql/product
 import { productDeleteRouterMysql } from '../../application/routes/mysql/product/deleteRouteMysql';
 import { productReadRouterMysql } from '../../application/routes/mysql/product/readRouteMysql';
 import { productUpdateRouterMysql } from '../../application/routes/mysql/product/updateRouteMysql';
-
 
 import { connect } from '../../infrastructure/adapters/mongoAdapter';
 import { connectMysql, closeMysqlConnection } from '../../infrastructure/adapters/mysqlAdapter';
@@ -42,6 +43,8 @@ async function start() {
         app.use(productDeleteRouter);
 
         app.use(userCreateRouter);
+        app.use(userLoginRouter);
+        app.use(userLogoutRoute);
         app.use(userDeteleRouter);
         app.use(userReadRouter);
         app.use(userUpdateRouter);

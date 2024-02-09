@@ -1,7 +1,6 @@
 import mongoose, { Document } from 'mongoose';
 
 interface IUser extends Document {
-    id: number;
     email: string;
     password: string;
     verified_at: number;
@@ -10,7 +9,6 @@ interface IUser extends Document {
 }
 
 const productSchema = new mongoose.Schema({
-    id: { type: Number, required: true },
     email: { type: String, required: true },
     password: { type: String, required: true },
     verified_at: { type: Number, required: false },

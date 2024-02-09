@@ -3,7 +3,7 @@ import express, { Request, Response } from 'express';
 
 const userCreateRouter = express.Router();
 
-userCreateRouter.post('/users', async (req: Request, res: Response) => {
+userCreateRouter.post('/register', async (req: Request, res: Response) => {
     try {
         const result = await createUser(req, res);  
         res.json(result);
